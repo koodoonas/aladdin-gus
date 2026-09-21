@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_FILES = {
     ".gitattributes",
     ".github/workflows/build.yml",
+    ".github/workflows/release.yml",
     ".gitignore",
     "ALADGUS.COM",
     "CHANGELOG.md",
@@ -22,6 +23,8 @@ EXPECTED_FILES = {
     "Makefile",
     "PROVENANCE.md",
     "README.md",
+    "release/README.TXT",
+    "release/RELEASE_NOTES.md",
     "RESTORE.BAT",
     "SECURITY.md",
     "SHA256SUMS.txt",

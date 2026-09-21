@@ -1,0 +1,57 @@
+name: release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/release.yml
+      - release/README.TXT
+      - release/RELEASE_NOTES.md
+
+permissions:
+  contents: write
+
+jobs:
+  publish-v1-1:
+    if: github.repository == 'koodoonas/aladdin-gus'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble DOS installation package
+        shell: bash
+        run: |
+          set -euo pipefail
+          package="dist/aladdin-gus-1.1"
+          mkdir -p "$package"
+          cp ALADGUS.COM CONFIG.BAT INSTALL.BAT LICENSE RESTORE.BAT "$package/"
+          cp release/README.TXT "$package/README.TXT"
+          perl -pi -e 's/\r?\n/\r\n/g' "$package/README.TXT"
+          (
+            cd "$package"
+            sha256sum ALADGUS.COM CONFIG.BAT INSTALL.BAT LICENSE README.TXT RESTORE.BAT \
+              > SHA256SUMS.TXT
+          )
+          (
+            cd dist
+            zip -9 -r aladdin-gus-1.1.zip aladdin-gus-1.1
+            sha256sum aladdin-gus-1.1.zip > aladdin-gus-1.1.zip.sha256
+          )
+          unzip -t dist/aladdin-gus-1.1.zip
+
+      - name: Publish v1.1 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view v1.1 >/dev/null 2>&1; then
+            echo "Release v1.1 already exists; refusing to replace it."
+            exit 1
+          fi
+          gh release create v1.1 \
+            dist/aladdin-gus-1.1.zip \
+            dist/aladdin-gus-1.1.zip.sha256 \
+            --target "$GITHUB_SHA" \
+            --title "Aladdin Native GUS Patch 1.1" \
+            --notes-file release/RELEASE_NOTES.md

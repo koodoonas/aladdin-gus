@@ -1,0 +1,19 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build DOS utility
+        run: make clean all
+      - name: Verify reproducible binary
+        run: git diff --exit-code -- ALADGUS.COM
+      - name: Audit repository contents
+        run: python3 tools/audit_repo.py
+      - name: Run Python tests
+        run: python3 -m unittest discover -s tests -v

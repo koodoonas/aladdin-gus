@@ -1,0 +1,7 @@
+*.BAT text eol=crlf
+*.COM binary
+*.EXE binary
+*.CFG binary
+*.md text eol=lf
+*.py text eol=lf
+*.s text eol=lf

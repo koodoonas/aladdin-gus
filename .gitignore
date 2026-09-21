@@ -1,0 +1,19 @@
+# Build products
+build/
+*.o
+*.zip
+
+# User-supplied or generated game files
+ALADDIN.EXE
+ALADDIN.GUS
+ALAD_ORG.EXE
+SOUND.CFG
+SND_ORG.CFG
+*.iso
+*.ISO
+
+# Local test installations
+game/
+test-game/
+__pycache__/
+*.pyc

@@ -168,6 +168,16 @@ Version 1.1 has been checked with:
 Other resource layouts are generated according to the standard `ULTRASND`
 mapping but cannot all be physically tested.
 
+## Other GUS Patches
+
+[Gravis Ultrasound Game Patches](https://github.com/koodoonas/gus-game-patches-and-fixes)
+
+## AI usage disclosure
+
+These patches have been heavily assisted by AI and, in some cases, developed almost entirely with its help.
+
+I remain ambivalent about AI and its human and environmental costs. But since it’s already here, I might as well use it for something fun until it consumes us all.
+
 ## License and game ownership
 
 The original patch code and tooling in this repository are released under the

@@ -163,6 +163,7 @@ Version 1.1 has been checked with:
 - Successful installation, reconfiguration, invalid-value rejection, and
   restoration under DOS.
 - Confirmed playback on genuine hardware at `ULTRASND=240,7,7,7,7`.
+- Confirmed playback on a 486-class 133 MHz system with a GUS PnP.
 
 Other resource layouts are generated according to the standard `ULTRASND`
 mapping but cannot all be physically tested.

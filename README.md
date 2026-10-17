@@ -3,6 +3,10 @@
 An exact-build patch that enables the native DSMI Gravis UltraSound path
 already present in the DOS release of *Aladdin*.
 
+**[Download the latest release](https://github.com/koodoonas/aladdin-gus/releases/latest)**
+·
+**[Watch the real-hardware demonstration](https://youtu.be/vi3zijj3B2Y)**
+
 The repository is source-only: it contains no game executable, modified game
 executable, music, graphics, or other assets from the original game. The user
 must supply the supported `ALADDIN.EXE` from their own installation.
@@ -21,6 +25,12 @@ and reproducibility procedure.
 - Automatic backups and a reversible restore script.
 - Host-side Python reference patcher for auditing and reproducible builds.
 - Does not add or remove the original game's EMS requirement.
+
+## Video demonstration
+
+[![Disney's Aladdin DOS GUS patch running on a 386DX-40](https://i.ytimg.com/vi/vi3zijj3B2Y/hqdefault.jpg)](https://youtu.be/vi3zijj3B2Y)
+
+*Patch v1.1 running on a 386DX-40 with a 1 MB GUS MAX. Click the image to watch the real-hardware demonstration.*
 
 ## Supported game build
 
@@ -162,7 +172,9 @@ Version 1.1 has been checked with:
   voice start, sample download, and sample playback dispatch.
 - Successful installation, reconfiguration, invalid-value rejection, and
   restoration under DOS.
-- Confirmed playback on genuine hardware at `ULTRASND=240,7,7,7,7`.
+- Confirmed on a 386DX-40 with a 1 MB GUS MAX at
+  `ULTRASND=240,7,7,7,7`
+  ([video demonstration](https://youtu.be/vi3zijj3B2Y)).
 - Confirmed playback on a 486-class 133 MHz system with a GUS PnP.
 
 Other resource layouts are generated according to the standard `ULTRASND`
